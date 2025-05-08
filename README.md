@@ -31,16 +31,10 @@ This repository provisions Google Cloud infrastructure using Terraform, includin
 │   ├── staging/
 │   └── prod/
 │
-├── modules/
-│   ├── gke/
-│   │   ├── main.tf              # GKE cluster and node pools
-│   │   ├── outputs.tf           # Output values like cluster name
-│   │   └── variables.tf         # Input variables for GKE module
-│   │
-│   └── argocd/
-│       ├── main.tf              # Helm release to deploy Argo CD
-│       ├── outputs.tf           # ArgoCD service info (e.g., URL, password)
-│       └── variables.tf         # Input variables for Argo CD
+├── modules/gke/
+│   ├── main.tf              # GKE cluster and node pools
+│   ├── outputs.tf           # Output values like cluster name
+│   └── variables.tf         # Input variables for GKE module
 │
 ├── main.tf                      # Root module (optional)
 ├── outputs.tf                   # Shared outputs

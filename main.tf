@@ -26,16 +26,16 @@ module "gke_cluster" {
   project_id   = var.project_id
 }
 
-resource "helm_release" "argocd" {
-  name             = "argocd"
-  namespace        = "argocd"
+resource "helm_release" "argocd_image_updater" {
+  name       = "argocd-image-updater"
+  namespace  = "argocd"
   create_namespace = true
 
-  repository       = "https://argoproj.github.io/argo-helm"
-  chart            = "argo-cd"
-  version          = "5.51.0"
+  repository = "https://argoproj.github.io/argo-helm"
+  chart      = "argo-cd-image-updater"
+  version    = "1.0.0" # Ensure to use the latest stable version
 
   values = [
-    file("${path.module}/values/argocd-values.yaml")
+    file("${path.module}/values/argocd-image-updater-values.yaml")
   ]
 }
